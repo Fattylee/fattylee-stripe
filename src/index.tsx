@@ -1,6 +1,5 @@
 import { render } from "react-dom";
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import React from "react";
 import "./index.css";
 import { App } from "./App";
@@ -10,6 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   credentials: "include",
+  cache: new InMemoryCache(),
 });
 
 const ApolloApp = (
